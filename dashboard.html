@@ -1,0 +1,345 @@
+{% extends 'base.html' %}
+{% block body %}
+
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-2 border-end border-1 border-dark">
+        <!-- Sidebar Menu -->
+        <div class="mt-4 mb-4">
+          <a href="#studentDetails" class="details">
+            <button style="width: 100%;" class="btn btn-outline-secondary" type="button">Profile</button>
+          </a>
+        </div>
+        <div class="mt-3 mb-4">
+          <a href="#timeTable" class="details">
+            <button style="width: 100%;" class="btn btn-outline-secondary" type="button">Time Table</button>
+          </a>
+        </div>
+        <div class="mt-3 mb-4">
+          <a href="#registeredCourses" class="details">
+            <button style="width: 100%;" class="btn btn-outline-secondary" type="button">Registered Courses</button>
+          </a>
+        </div>
+        <div class="mt-3 mb-4">
+          <a href="#upcomingCourses" class="details">
+            <button style="width: 100%;" class="btn btn-outline-secondary" type="button">Upcoming Courses</button>
+          </a>
+        </div>
+        <div class="mt-3 mb-4">
+          <a href="#allCourses" class="details">
+            <button style="width: 100%;" class="btn btn-outline-secondary" type="button">View all Courses</button>
+          </a>
+        </div>
+        <div class="mb-5">
+          <a href="{{ url_for('logout') }}">
+            <button class="btn btn-dark" style="width: 100%;">Logout</button>
+          </a>
+        </div>
+      </div>
+      <div class="col-10 scrollable-div">
+
+        <!-- Welcome student bar -->
+        <div class="container-fluid d-flex justify-content-around align-items-center border-bottom border-1 border-dark">
+          <div>
+            <h4>Welcome <span style="color: #0b8cec;">{{session.name}} !</span></h4>
+          </div>
+          <div>
+              <img src="{{ url_for('static', filename='profilepic/' + session.profilepic) }}" class="rounded-circle" width="70" height="70" alt="Profile pic">
+          </div>
+        </div>
+
+        <!--  Sections start-->
+
+        <!--  Section: Student Details-->
+        <div id="studentDetails" class="container-fluid mb-5 mt-5 hidden-section">
+          <div class="card border-black text-center mb-3" style="max-width: 40rem; margin-left: 20%;">
+            <div class="card-header">
+              <h2>Profile Information</h2>
+            </div>
+            <div class="card-body">
+              <table class="table table-striped text-center">
+                <thead>
+                    <tr>
+                        <th scope="col">Key</th>
+                        <th scope="col">Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td scope="ro1">Roll No</td>
+                        <td>{{ session.roll }}</td>
+                    </tr>
+                    <tr>
+                        <td scope="ro1">Name</td>
+                        <td>{{ session.name }}</td>
+                    </tr>
+                    <tr>
+                        <td scope="ro1">Age</td>
+                        <td>{{ session.age }}</td>
+                    </tr>
+                    <tr>
+                        <td scope="ro1">Gender</td>
+                        <td>{{ session.gender }}</td>
+                    </tr>
+                    <tr>
+                        <td scope="ro1">Email</td>
+                        <td>{{ session.email }}</td>
+                    </tr>
+                    <tr>
+                        <td scope="ro1">Contact</td>
+                        <td>{{ session.contact }}</td>
+                    </tr>
+                    <tr>
+                        <td scope="ro1">Address</td>
+                        <td>{{ session.address }}</td>
+                    </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!--  section: Time Table -->
+        <div id="timeTable" class="container-fluid mb-5 mt-5 hidden-section">
+          <div style="text-align: center;">
+            <h2><u>Routine For Morning Batch</u></h2>
+            <table class="table table-striped mt-5">
+              <thead>
+                <tr>
+                  <th>Day/Time</th>
+                  <th>7AM-8AM</th>
+                  <th>8AM-9AM</th>
+                  <th>9AM-10AM</th>
+                  <th>10AM-11AM</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Mon</td>
+                  <td>Java Core</td>
+                  <td>React</td>
+                  <td>Data Science</td>
+                  <td>Web Dev Basics</td>
+                </tr>
+                <tr>
+                  <td>Tue</td>
+                  <td>Python</td>
+                  <td>AngularJS</td>
+                  <td>DevOps</td>
+                  <td>Full Stack Java</td>
+                </tr>
+                <tr>
+                  <td>Wed</td>
+                  <td>Java Core</td>
+                  <td>React</td>
+                  <td>Data Science</td>
+                  <td>Web Dev Basics</td>
+                </tr>
+                <tr>
+                  <td>Thu</td>
+                  <td>Python</td>
+                  <td>AngularJS</td>
+                  <td>DevOps</td>
+                  <td>Full Stack Java</td>
+                </tr>
+                <tr>
+                  <td>Fri</td>
+                  <td>Java Core</td>
+                  <td>React</td>
+                  <td>Data Science</td>
+                  <td>Web Dev Basics</td>
+                </tr>
+                <tr>
+                  <td>Sat</td>
+                  <td>Python</td>
+                  <td>AngularJS</td>
+                  <td>DevOps</td>
+                  <td>Full Stack Java</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="mt-5" style="text-align: center;">
+            <h2><u>Routine For Evening Batch</u></h2>
+            <table class="table table-striped mt-5">
+              <thead>
+                <tr>
+                  <th>Day/Time</th>
+                  <th>3PM-4PM</th>
+                  <th>4PM-5PM</th>
+                  <th>5PM-6PM</th>
+                  <th>6PM-7PM</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Mon</td>
+                  <td>Java Core</td>
+                  <td>React</td>
+                  <td>Data Science</td>
+                  <td>Web Dev Basics</td>
+                </tr>
+                <tr>
+                  <td>Tue</td>
+                  <td>Python</td>
+                  <td>AngularJS</td>
+                  <td>DevOps</td>
+                  <td>Full Stack Java</td>
+                </tr>
+                <tr>
+                  <td>Wed</td>
+                  <td>Java Core</td>
+                  <td>React</td>
+                  <td>Data Science</td>
+                  <td>Web Dev Basics</td>
+                </tr>
+                <tr>
+                  <td>Thu</td>
+                  <td>Python</td>
+                  <td>AngularJS</td>
+                  <td>DevOps</td>
+                  <td>Full Stack Java</td>
+                </tr>
+                <tr>
+                  <td>Fri</td>
+                  <td>Java Core</td>
+                  <td>React</td>
+                  <td>Data Science</td>
+                  <td>Web Dev Basics</td>
+                </tr>
+                <tr>
+                  <td>Sat</td>
+                  <td>Python</td>
+                  <td>AngularJS</td>
+                  <td>DevOps</td>
+                  <td>Full Stack Java</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!--  Section: Registered Courses -->
+        <div id="registeredCourses" class="container-fluid mb-5 mt-5 hidden-section">
+          <div class="container" style="text-align: center;">
+            <h2><u>Registered Courses</u></h2>
+          </div>
+          <table class="mt-5 table table-striped text-center">
+            <thead>
+                <tr>
+                    <th scope="col">SNo</th>
+                    <th scope="col">Course Id</th>
+                    <th scope="col">Roll No</th>
+                    <th scope="col">Course Name</th>
+                    <th scope="col">Batch</th>
+                    <th scope="col">Teacher</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in reg %}
+                <tr>
+                    <td scope="row">{{ loop.index }}</td>
+                    <td>{{ row['Cid'] }}</td>
+                    <td>{{ row['Rollno'] }}</td>
+                    <td>{{ row['Course'] }}</td>
+                    <td>{{ row['Batch'] }}</td>
+                    <td>{{ row['Teacher'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+          </table>
+        </div>
+
+        <!--  Section: Upcoming Courses -->
+        <div id="upcomingCourses" class="container-fluid mb-5 mt-5 hidden-section">
+          <div class="container" style="text-align: center;">
+            <h2><u>Upcoming Courses</u></h2>
+          </div>
+          <table class="mt-5 table table-striped text-center">
+            <thead>
+                <tr>
+                    <th scope="col">SNo</th>
+                    <th scope="col">Course Id</th>
+                    <th scope="col">Course Name</th>
+                    <th scope="col">Batch</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Teacher</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in uc %}
+                <tr>
+                    <td scope="ro1">{{ loop.index }}</td>
+                    <td>{{ row['Cid'] }}</td>
+                    <td>{{ row['Course'] }}</td>
+                    <td>{{ row['Batch'] }}</td>
+                    <td>{{ row['Date'] }}</td>
+                    <td>{{ row['Time'] }}</td>
+                    <td>{{ row['Teacher'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+          </table>
+        </div>
+
+        <!--  Section: All Courses-->
+        <div id="allCourses" class="container-fluid hidden-section">
+          <div class="container" style="text-align: center;">
+            <h2><u>All Courses</u></h2>
+          </div>
+          <table class="mt-5 table table-striped text-center">
+            <thead>
+                <tr>
+                    <th scope="col">SNo</th>
+                    <th scope="col">Course Id</th>
+                    <th scope="col">Course</th>
+                    <th scope="col">Teacher</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in results %}
+                <tr>
+                    <td scope="ro1">{{ loop.index }}</td>
+                    <td>{{ row['Cid'] }}</td>
+                    <td>{{ row['Course'] }}</td>
+                    <td>{{ row['Teacher'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        <!--  Sections end-->
+      </div>
+
+      </div>
+  </div>
+
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    // Function to toggle visibility of sections
+    function toggleSection(sectionId) {
+      var section = document.getElementById(sectionId);
+      if (section.style.display === "none") {
+        section.style.display = "block";
+      } else {
+        section.style.display = "none";
+      }
+    }
+
+    // Event listener for section links
+    var sectionLinks = document.querySelectorAll(".details");
+    sectionLinks.forEach(function(link) {
+      link.addEventListener("click", function(event) {
+        event.preventDefault(); // Prevent default link behavior
+        var sectionId = link.getAttribute("href").substring(1); // Extract section ID from href
+        toggleSection(sectionId); // Toggle visibility of section
+      });
+    });
+  </script>
+
+
+{% endblock body %}

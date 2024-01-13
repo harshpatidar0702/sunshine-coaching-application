@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div class="container mt-5 mb-5 ">
+    <div class="row">
+        <div style="border: 1px solid black;" class="p-3">
+            <h3 style="text-align: center;">Student Login</h3>
+            <form method="post" action="/dashboard">
+                {% if msg is defined and msg %}
+                    <div class="alert alert-warning">{{ msg }}</div>
+                {% endif %}
+                <div class="mb-3">
+                    <label for="Email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="Email" name="Email" placeholder="Enter email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="Password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="Password" name="Password" placeholder="Enter password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button><br><br>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}

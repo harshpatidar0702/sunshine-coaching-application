@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div class="container-fluid mb-5 mt-5">
+  <div class="card border-black text-center mb-3" style="max-width: 40rem; margin-left: 25%;">
+    <div class="card-header">
+      <h2>Course Details</h2>
+    </div>
+    <div class="card-body">
+      <form action="/jaKabutarja" method="post">
+
+        <table class="table table-striped text-center">
+          <thead>
+            <tr>
+              <th scope="col">Key</th>
+              <th scope="col">Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Course Name</td>
+              <td>{{ details["Course"] }}</td>
+            </tr>
+            <tr>
+              <td>Course Id</td>
+              <td>{{ details["Cid"] }}</td>
+            </tr>
+            <tr>
+              <td>Batch</td>
+              <td>{{ details["Batch"] }}</td>
+            </tr>
+            <tr>
+              <td>Teacher</td>
+              <td>{{ details["Teacher"] }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <input type="text" name="CourseId" value="{{ details['Course'] }}" style="display:none;">
+        <input type="text" name="Cid" value="{{ details['Cid'] }}" style="display:none;">
+        <input type="text" name="Batch" value="{{ details['Batch'] }}" style="display:none;">
+        <input type="text" name="Teacher" value="{{ details['Teacher'] }}" style="display:none;">
+        <div >
+          <button type="submit" class="btn btn-outline-info" style="width: 80%;">Register</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock body %}
